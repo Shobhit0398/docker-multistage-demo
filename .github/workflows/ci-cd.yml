@@ -30,7 +30,7 @@ jobs:
       
     - name: Update Kubernetes manifests with new image tag
       run: |
-        sed -i "s#image: .*#image: ${{ secrets.DOCKER_USERNAME }}/flask-app:${IMAGE_TAG}#g" k8s/deployment.yaml
+        sed -i "s#image: .*#image: ${{ secrets.DOCKER_USERNAME }}/flask-app:${IMAGE_TAG}#g" k8s/deployment.yml
 
     - name: Commit updated manifest
       run: |
