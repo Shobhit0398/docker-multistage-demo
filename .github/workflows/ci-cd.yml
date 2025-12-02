@@ -33,11 +33,11 @@ jobs:
         sed -i "s#image: .*#image: ${{ secrets.DOCKER_USERNAME }}/flask-app:${IMAGE_TAG}#g" k8s/deployment.yml
 
     - name: Commit updated manifest
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
         git config user.email "shobhitnagar71@gmail.com"
         git config user.name "Shobhit0398"
         git add k8s/deployment.yml
         git commit -m "Update image tag to ${IMAGE_TAG}" || echo "No changes"
         git push https://$GH_PAT@github.com/Shobhit0398/docker-multistage-demo.git HEAD:master
-      env:
-        GH_PAT: ${{ secrets.GH_PAT }}
