@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: shobhit/flask-app:latest   # CI will replace this
+        image: shobhitnagar/flask-app:99541ec
         ports:
         - containerPort: 5000
