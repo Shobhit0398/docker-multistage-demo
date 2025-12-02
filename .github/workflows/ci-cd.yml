@@ -26,7 +26,7 @@ jobs:
 
     - name: Push Docker Image
       run: |
-        docker push ${{secrets.DOCKER_USERNAME}} /flask-app:${IMAGE_TAG}
+        docker push ${{secrets.DOCKER_USERNAME}}/flask-app:${IMAGE_TAG}
       
     - name: Update Kubernetes manifests with new image tag
       run: |
